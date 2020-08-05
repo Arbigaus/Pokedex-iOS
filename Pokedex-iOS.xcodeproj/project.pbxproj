@@ -13,6 +13,8 @@
 		D77FAB6A24D8E5D5002292AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77FAB6824D8E5D5002292AA /* Main.storyboard */; };
 		D77FAB6C24D8E5D9002292AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D77FAB6B24D8E5D9002292AA /* Assets.xcassets */; };
 		D77FAB6F24D8E5D9002292AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77FAB6D24D8E5D9002292AA /* LaunchScreen.storyboard */; };
+		D77FAB7724D8EB35002292AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FAB7624D8EB35002292AA /* Colors.swift */; };
+		D77FAB7B24D8F266002292AA /* PokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FAB7A24D8F266002292AA /* PokeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D77FAB6B24D8E5D9002292AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D77FAB6E24D8E5D9002292AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D77FAB7024D8E5D9002292AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D77FAB7624D8EB35002292AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D77FAB7A24D8F266002292AA /* PokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		D77FAB6124D8E5D5002292AA /* Pokedex-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D77FAB7924D8F251002292AA /* Services */,
+				D77FAB7824D8F1E2002292AA /* Model */,
 				D77FAB6224D8E5D5002292AA /* AppDelegate.swift */,
 				D77FAB6424D8E5D5002292AA /* SceneDelegate.swift */,
 				D77FAB6624D8E5D5002292AA /* ViewController.swift */,
@@ -65,6 +71,22 @@
 				D77FAB7024D8E5D9002292AA /* Info.plist */,
 			);
 			path = "Pokedex-iOS";
+			sourceTree = "<group>";
+		};
+		D77FAB7824D8F1E2002292AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D77FAB7624D8EB35002292AA /* Colors.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D77FAB7924D8F251002292AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D77FAB7A24D8F266002292AA /* PokeService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77FAB6724D8E5D5002292AA /* ViewController.swift in Sources */,
+				D77FAB7724D8EB35002292AA /* Colors.swift in Sources */,
 				D77FAB6324D8E5D5002292AA /* AppDelegate.swift in Sources */,
 				D77FAB6524D8E5D5002292AA /* SceneDelegate.swift in Sources */,
+				D77FAB7B24D8F266002292AA /* PokeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +311,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3DAQ868NGN;
 				INFOPLIST_FILE = "Pokedex-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +330,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3DAQ868NGN;
 				INFOPLIST_FILE = "Pokedex-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

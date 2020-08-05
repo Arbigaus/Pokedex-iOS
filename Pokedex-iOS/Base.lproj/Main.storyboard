@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,77 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pokedex_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyt-Sb-7y4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="270"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmI-SS-pZn">
+                                        <rect key="frame" x="40" y="50" width="334" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="AZM-f6-fxb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for Pokémon by name or using the National Pokédex number." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyp-9l-myP">
+                                        <rect key="frame" x="40" y="94" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aeW-lf-KdH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-jQ-iPe">
+                                        <rect key="frame" x="40" y="164" width="334" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="shS-In-MZ6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uFs-jQ-iPe" firstAttribute="top" secondItem="Eyp-9l-myP" secondAttribute="bottom" constant="20" id="GMC-7Y-1a7"/>
+                                    <constraint firstItem="Eyp-9l-myP" firstAttribute="top" secondItem="mmI-SS-pZn" secondAttribute="bottom" constant="8" id="ID6-89-Dzt"/>
+                                    <constraint firstAttribute="trailing" secondItem="uFs-jQ-iPe" secondAttribute="trailing" constant="40" id="P0P-SA-mva"/>
+                                    <constraint firstAttribute="trailing" secondItem="mmI-SS-pZn" secondAttribute="trailing" constant="40" id="RCf-72-pmF"/>
+                                    <constraint firstItem="Eyp-9l-myP" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="Yax-V7-PrW"/>
+                                    <constraint firstItem="mmI-SS-pZn" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="dvb-U4-oWT"/>
+                                    <constraint firstAttribute="height" constant="270" id="eeh-2A-yzD"/>
+                                    <constraint firstItem="uFs-jQ-iPe" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="ji8-mM-qbA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eyp-9l-myP" secondAttribute="trailing" constant="40" id="kpz-J0-8La"/>
+                                    <constraint firstItem="mmI-SS-pZn" firstAttribute="top" secondItem="Nyt-Sb-7y4" secondAttribute="top" constant="50" id="xJs-GQ-o58"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-IR-mRS">
+                                <rect key="frame" x="0.0" y="314" width="414" height="548"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nyt-Sb-7y4" secondAttribute="trailing" id="K8P-1v-vea"/>
+                            <constraint firstItem="yQV-IR-mRS" firstAttribute="top" secondItem="Nyt-Sb-7y4" secondAttribute="bottom" id="U0I-YA-pQr"/>
+                            <constraint firstItem="Nyt-Sb-7y4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hwf-Fc-w0A"/>
+                            <constraint firstItem="yQV-IR-mRS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iDp-l4-Jty"/>
+                            <constraint firstItem="yQV-IR-mRS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ln2-VS-Nhg"/>
+                            <constraint firstItem="Nyt-Sb-7y4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t2M-Dq-HJQ"/>
+                            <constraint firstAttribute="trailing" secondItem="yQV-IR-mRS" secondAttribute="trailing" id="zyl-3g-BCj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
