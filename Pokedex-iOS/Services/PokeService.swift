@@ -9,44 +9,64 @@
 import Foundation
 
 struct PokeData: Decodable {
-    var name: String
-    var type: String
+    let results: [Pokemon]
 }
 
-class PokeService<PokeData> {
+struct Pokemon: Decodable {
+    var name: String
+    var url: String
+}
+
+struct PokeInfo: Decodable {
+    var name: String
+    var id: Int
+//    var species: Species
+}
+
+struct Species: Decodable {
+    var name: String
+}
+
+class PokeService {
     private var baseUrl : String = "https://pokeapi.co/api/v2"
+    let dispatchGroup = DispatchGroup()
     
     func getList(completion: @escaping (PokeData) -> ()) {
-        let url = URL(string: "\(baseUrl)/pokemon?limit=150")!
+        let url = URL(string: "\(baseUrl)/pokemon?limit=1")!
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print("Error to fetch Pokelist \(String(describing: error))")
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
-                    print("Error with the response, unexpected status code: \(String(describing: response))")
-              return
-            }
 
             if let data = data {
-                print("Hey Data")
-                let decoder = JSONDecoder()
-                
-                if let decoded = try? decoder.decode(PokeData.self, from: data) {
-                    print("\(decoded)")
+                if let decoded = try? JSONDecoder().decode(PokeData.self, from: data) {
+                    for poke in decoded.results {
+                        self.getPoke(with: poke.url) { pokeData in
+                            print(pokeData)
+                        }
+                    }
+                    
+                    self.dispatchGroup.notify(queue: .main) {
+                        print("All Finnished")
+                    }
+                    
                 }
-                
-//              let pokeSummary = try? JSONDecoder().decode(PokeList.self, from: data) {
-//                print(pokeSummary.self)
             }
-        
             
         }
         .resume()
-        
     }
     
+    func getPoke(with url: String, completion: @escaping (PokeInfo) -> ()) {
+        dispatchGroup.enter()
+        
+        print(url)
+        URLSession.shared.dataTask(with: URL(string: url)!) {(data, response, error) in
+            if let data = data {
+                print(data)
+                if let decoded = try? JSONDecoder().decode(PokeInfo.self, from: data) {
+                    self.dispatchGroup.leave()
+                    completion(decoded)
+                }
+            }
+        }
+    }
 }

@@ -9,13 +9,43 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var pokeList: [Pokemon?] = []
 
+    @IBOutlet weak var pokeTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        pokeTableView.delegate = self
+//        pokeTableView.dataSource = self
+        
+        let Service = PokeService()
+        
+        Service.getList() { list in
+            self.pokeList = list.results
+            print(self.pokeList)
+        }
+        
+        
+        
     }
-    
-    let list = PokeService.getList(PokeService)
+
     
 }
 
+extension ViewController: UITableViewDelegate {
+    
+}
+
+//extension ViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 3
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//
+//        return cell
+//    }
+//
+//
+//}
