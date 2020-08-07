@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var pokeList: [Pokemon?] = []
+    var pokeList: [PokeInfo] = []
 
     @IBOutlet weak var pokeTableView: UITableView!
     
@@ -19,13 +19,11 @@ class ViewController: UIViewController {
 //        pokeTableView.dataSource = self
         
         let Service = PokeService()
-        
-        Service.getList() { list in
-            self.pokeList = list.results
+        pokeList = Service.getPokeList()
+        Service.dispatchGroup.notify(queue: .main) {
             print(self.pokeList)
+            
         }
-        
-        
         
     }
 

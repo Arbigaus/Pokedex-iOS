@@ -9,7 +9,7 @@
 import Foundation
 
 struct PokeData: Decodable {
-    let results: [Pokemon]
+    let results: [PokeInfo]
 }
 
 struct Pokemon: Decodable {
@@ -20,7 +20,7 @@ struct Pokemon: Decodable {
 struct PokeInfo: Decodable {
     var name: String
     var id: Int
-//    var species: Species
+    var species: Species
 }
 
 struct Species: Decodable {
@@ -31,42 +31,31 @@ class PokeService {
     private var baseUrl : String = "https://pokeapi.co/api/v2"
     let dispatchGroup = DispatchGroup()
     
-    func getList(completion: @escaping (PokeData) -> ()) {
-        let url = URL(string: "\(baseUrl)/pokemon?limit=1")!
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-
-            if let data = data {
-                if let decoded = try? JSONDecoder().decode(PokeData.self, from: data) {
-                    for poke in decoded.results {
-                        self.getPoke(with: poke.url) { pokeData in
-                            print(pokeData)
-                        }
+    func getPoke(with id: Int, completion: @escaping (PokeInfo) -> ()) {
+        dispatchGroup.enter()
+        if let url = URL(string: "\(baseUrl)/pokemon/\(id)/") {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let data = data {
+                    if let decoded = try? JSONDecoder().decode(PokeInfo.self, from: data) {
+                        self.dispatchGroup.leave()                       
+                        completion(decoded)
                     }
-                    
-                    self.dispatchGroup.notify(queue: .main) {
-                        print("All Finnished")
-                    }
-                    
                 }
-            }
-            
+            }.resume()
         }
-        .resume()
     }
     
-    func getPoke(with url: String, completion: @escaping (PokeInfo) -> ()) {
-        dispatchGroup.enter()
-        
-        print(url)
-        URLSession.shared.dataTask(with: URL(string: url)!) {(data, response, error) in
-            if let data = data {
-                print(data)
-                if let decoded = try? JSONDecoder().decode(PokeInfo.self, from: data) {
-                    self.dispatchGroup.leave()
-                    completion(decoded)
-                }
+    func getPokeList() -> [PokeInfo] {
+        var list: [PokeInfo] = []
+        for n in 1...150 {
+            self.getPoke(with: n) { poke in
+                list.append(poke)
             }
         }
+        self.dispatchGroup.notify(queue: .main) {
+            print(list)            
+        }
+        return list
     }
+    
 }
