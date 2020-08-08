@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-enum TypeColors {
+enum TypeColors: String, Decodable {
     case bug
     case dark
     case dragon
@@ -32,85 +33,115 @@ enum TypeColors {
 
 class Colors {
     
-    func getTypeColor(_ color: TypeColors) -> String {
+    func getTypeColor(_ color: TypeColors) -> UIColor {
         switch color {
             case .bug:
-                return "#8CB230"
+                return UIColor(hexString: "#8CB230")
             case .dark:
-                return "#58575F"
+                return UIColor(hexString: "#58575F")
             case .dragon:
-                return "#0F6AC0"
+                return UIColor(hexString: "#0F6AC0")
             case .electric:
-                return "#EED535"
+                return UIColor(hexString: "#EED535")
             case .fairy:
-                return "#ED6EC7"
+                return UIColor(hexString: "#ED6EC7")
             case .fighting:
-                return "#D04164"
+                return UIColor(hexString: "#D04164")
             case .fire:
-                return "#FD7D24"
+                return UIColor(hexString: "#FD7D24")
             case .flying:
-                return "#748FC9"
+                return UIColor(hexString: "#748FC9")
             case .ghost:
-                return "#556AAE"
+                return UIColor(hexString: "#556AAE")
             case .grass:
-                return "#62B957"
+                return UIColor(hexString: "#62B957")
             case .ground:
-                return "#DD7748"
+                return UIColor(hexString: "#DD7748")
             case .ice:
-                return "#61CEC0"
+                return UIColor(hexString: "#61CEC0")
             case .normal:
-                return "#9DA0AA"
+                return UIColor(hexString: "#9DA0AA")
             case .poison:
-                return "#A552CC"
+                return UIColor(hexString: "#A552CC")
             case .psychic:
-                return "#EA5D60"
+                return UIColor(hexString: "#EA5D60")
             case .rock:
-                return "#BAAB82"
+                return UIColor(hexString: "#BAAB82")
             case .steel:
-                return "#417D9A"
+                return UIColor(hexString: "#417D9A")
             case .water:
-                return "#4A90DA"
+                return UIColor(hexString: "#4A90DA")
         }
     }
     
-    func getBackgroundColor(type color: TypeColors) -> String {
+    func getBackgroundColor(type color: TypeColors) -> UIColor {
         switch color {
             case .bug:
-                  return "#8BD674"
+                  return UIColor(hexString: "#8BD674")
             case .dark:
-                  return "#6F6E78"
+                  return UIColor(hexString: "#6F6E78")
             case .dragon:
-                  return "#7383B9"
+                  return UIColor(hexString: "#7383B9")
             case .electric:
-                  return "#F2CB55"
+                  return UIColor(hexString: "#F2CB55")
             case .fairy:
-                  return "#EBA8C3"
+                  return UIColor(hexString: "#EBA8C3")
             case .fighting:
-                  return "#EB4971"
+                  return UIColor(hexString: "#EB4971")
             case .fire:
-                  return "#FFA756"
+                  return UIColor(hexString: "#FFA756")
             case .flying:
-                  return "#83A2E3"
+                  return UIColor(hexString: "#83A2E3")
             case .ghost:
-                  return "#8571BE"
+                  return UIColor(hexString: "#8571BE")
             case .grass:
-                  return "#8BBE8A"
+                  return UIColor(hexString: "#8BBE8A")
             case .ground:
-                  return "#F78551"
+                  return UIColor(hexString: "#F78551")
             case .ice:
-                  return "#91D8DF"
+                  return UIColor(hexString: "#91D8DF")
             case .normal:
-                  return "#B5B9C4"
+                  return UIColor(hexString: "#B5B9C4")
             case .poison:
-                  return "#9F6E97"
+                  return UIColor(hexString: "#9F6E97")
             case .psychic:
-                  return "#FF6568"
+                  return UIColor(hexString: "#FF6568")
             case .rock:
-                  return "#D4C294"
+                  return UIColor(hexString: "#D4C294")
             case .steel:
-                  return "#4C91B2"
+                  return UIColor(hexString: "#4C91B2")
             case .water:
-                  return "#58ABf6"
+                  return UIColor(hexString: "#58ABf6")
         }
     }
 }
+
+extension UIColor {
+    convenience init(hexString: String, alpha: CGFloat = 1.0) {
+        let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let scanner = Scanner(string: hexString)
+        if (hexString.hasPrefix("#")) {
+            scanner.scanLocation = 1
+        }
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+        self.init(red:red, green:green, blue:blue, alpha:alpha)
+    }
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        return String(format:"#%06x", rgb)
+    }
+}
+

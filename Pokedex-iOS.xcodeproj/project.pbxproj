@@ -15,6 +15,8 @@
 		D77FAB6F24D8E5D9002292AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77FAB6D24D8E5D9002292AA /* LaunchScreen.storyboard */; };
 		D77FAB7724D8EB35002292AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FAB7624D8EB35002292AA /* Colors.swift */; };
 		D77FAB7B24D8F266002292AA /* PokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FAB7A24D8F266002292AA /* PokeService.swift */; };
+		D78C63CC24DDCFDA00F1BC91 /* PokeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C63CA24DDCFDA00F1BC91 /* PokeTableViewCell.swift */; };
+		D78C63CD24DDCFDA00F1BC91 /* PokeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78C63CB24DDCFDA00F1BC91 /* PokeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D77FAB7024D8E5D9002292AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D77FAB7624D8EB35002292AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D77FAB7A24D8F266002292AA /* PokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeService.swift; sourceTree = "<group>"; };
+		D78C63CA24DDCFDA00F1BC91 /* PokeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeTableViewCell.swift; sourceTree = "<group>"; };
+		D78C63CB24DDCFDA00F1BC91 /* PokeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +64,12 @@
 		D77FAB6124D8E5D5002292AA /* Pokedex-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D78C63C924DDCFB500F1BC91 /* ViewController */,
+				D78C63C824DDCF8F00F1BC91 /* View */,
 				D77FAB7924D8F251002292AA /* Services */,
 				D77FAB7824D8F1E2002292AA /* Model */,
 				D77FAB6224D8E5D5002292AA /* AppDelegate.swift */,
 				D77FAB6424D8E5D5002292AA /* SceneDelegate.swift */,
-				D77FAB6624D8E5D5002292AA /* ViewController.swift */,
-				D77FAB6824D8E5D5002292AA /* Main.storyboard */,
-				D77FAB6B24D8E5D9002292AA /* Assets.xcassets */,
-				D77FAB6D24D8E5D9002292AA /* LaunchScreen.storyboard */,
 				D77FAB7024D8E5D9002292AA /* Info.plist */,
 			);
 			path = "Pokedex-iOS";
@@ -87,6 +89,26 @@
 				D77FAB7A24D8F266002292AA /* PokeService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D78C63C824DDCF8F00F1BC91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D77FAB6824D8E5D5002292AA /* Main.storyboard */,
+				D77FAB6B24D8E5D9002292AA /* Assets.xcassets */,
+				D77FAB6D24D8E5D9002292AA /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D78C63C924DDCFB500F1BC91 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D77FAB6624D8E5D5002292AA /* ViewController.swift */,
+				D78C63CA24DDCFDA00F1BC91 /* PokeTableViewCell.swift */,
+				D78C63CB24DDCFDA00F1BC91 /* PokeTableViewCell.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78C63CD24DDCFDA00F1BC91 /* PokeTableViewCell.xib in Resources */,
 				D77FAB6F24D8E5D9002292AA /* LaunchScreen.storyboard in Resources */,
 				D77FAB6C24D8E5D9002292AA /* Assets.xcassets in Resources */,
 				D77FAB6A24D8E5D5002292AA /* Main.storyboard in Resources */,
@@ -160,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78C63CC24DDCFDA00F1BC91 /* PokeTableViewCell.swift in Sources */,
 				D77FAB6724D8E5D5002292AA /* ViewController.swift in Sources */,
 				D77FAB7724D8EB35002292AA /* Colors.swift in Sources */,
 				D77FAB6324D8E5D5002292AA /* AppDelegate.swift in Sources */,

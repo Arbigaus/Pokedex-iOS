@@ -21,10 +21,20 @@ struct PokeInfo: Decodable {
     var name: String
     var id: Int
     var species: Species
+    var types: [Types]
 }
 
 struct Species: Decodable {
     var name: String
+}
+
+struct Types: Decodable {
+    var type: Type
+}
+
+struct Type: Decodable {
+    var name: TypeColors
+    var url: String
 }
 
 class PokeService {
@@ -44,7 +54,7 @@ class PokeService {
             }.resume()
         }
     }
-    
+    /*
     func getPokeList() -> [PokeInfo] {
         var list: [PokeInfo] = []
         for n in 1...150 {
@@ -53,9 +63,9 @@ class PokeService {
             }
         }
         self.dispatchGroup.notify(queue: .main) {
-            print(list)            
+            print(list)
         }
         return list
     }
-    
+    */
 }
