@@ -33,7 +33,7 @@ struct Types: Decodable {
 }
 
 struct Type: Decodable {
-    var name: TypeColors
+    var name: PokeType
     var url: String
 }
 

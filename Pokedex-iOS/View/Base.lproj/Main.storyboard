@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyt-Sb-7y4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="270"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmI-SS-pZn">
                                         <rect key="frame" x="40" y="50" width="334" height="36"/>
@@ -36,8 +36,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-jQ-iPe">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by Pokémon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-jQ-iPe">
                                         <rect key="frame" x="40" y="164" width="334" height="60"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="shS-In-MZ6"/>
                                         </constraints>
@@ -45,7 +46,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="uFs-jQ-iPe" firstAttribute="top" secondItem="Eyp-9l-myP" secondAttribute="bottom" constant="20" id="GMC-7Y-1a7"/>
                                     <constraint firstItem="Eyp-9l-myP" firstAttribute="top" secondItem="mmI-SS-pZn" secondAttribute="bottom" constant="8" id="ID6-89-Dzt"/>
@@ -53,14 +54,14 @@
                                     <constraint firstAttribute="trailing" secondItem="mmI-SS-pZn" secondAttribute="trailing" constant="40" id="RCf-72-pmF"/>
                                     <constraint firstItem="Eyp-9l-myP" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="Yax-V7-PrW"/>
                                     <constraint firstItem="mmI-SS-pZn" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="dvb-U4-oWT"/>
-                                    <constraint firstAttribute="height" constant="270" id="eeh-2A-yzD"/>
+                                    <constraint firstAttribute="height" constant="250" id="eeh-2A-yzD"/>
                                     <constraint firstItem="uFs-jQ-iPe" firstAttribute="leading" secondItem="Nyt-Sb-7y4" secondAttribute="leading" constant="40" id="ji8-mM-qbA"/>
                                     <constraint firstAttribute="trailing" secondItem="Eyp-9l-myP" secondAttribute="trailing" constant="40" id="kpz-J0-8La"/>
                                     <constraint firstItem="mmI-SS-pZn" firstAttribute="top" secondItem="Nyt-Sb-7y4" secondAttribute="top" constant="50" id="xJs-GQ-o58"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-IR-mRS">
-                                <rect key="frame" x="0.0" y="314" width="414" height="548"/>
+                                <rect key="frame" x="0.0" y="294" width="414" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>

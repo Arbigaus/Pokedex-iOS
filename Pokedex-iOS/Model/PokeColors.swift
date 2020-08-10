@@ -9,31 +9,9 @@
 import Foundation
 import UIKit
 
-enum TypeColors: String, Decodable {
-    case bug
-    case dark
-    case dragon
-    case electric
-    case fairy
-    case fighting
-    case fire
-    case flying
-    case ghost
-    case grass
-    case ground
-    case ice
-    case normal
-    case poison
-    case psychic
-    case rock
-    case steel
-    case water
-}
-
-
-class Colors {
+class PokeColors {
     
-    func getTypeColor(_ color: TypeColors) -> UIColor {
+    func getTypeColor(type color: PokeType) -> UIColor {
         switch color {
             case .bug:
                 return UIColor(hexString: "#8CB230")
@@ -74,7 +52,7 @@ class Colors {
         }
     }
     
-    func getBackgroundColor(type color: TypeColors) -> UIColor {
+    func getBackgroundColor(type color: PokeType) -> UIColor {
         switch color {
             case .bug:
                   return UIColor(hexString: "#8BD674")
